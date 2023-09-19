@@ -1,0 +1,35 @@
+@charset "ISO-8859-1";
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.vertical-nav {
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.vertical-nav button {
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    background-color: #333;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.vertical-nav button:hover {
+    background-color: #555;
+}
+
+#content {
+    margin-left: 220px;
+    padding: 20px;
+}
