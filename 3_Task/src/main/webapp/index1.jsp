@@ -27,8 +27,7 @@
         <button onclick="loadContent('available_courses')">Available Courses</button>
         <button onclick="loadContent('my_courses')">My Courses</button>
     </div>
-    <div id="content">
-        <!-- Content will be loaded here -->
+    <div id="content">  
     </div>
 </body>
 </html>
