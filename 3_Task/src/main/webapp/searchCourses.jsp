@@ -7,7 +7,6 @@
     <meta charset="ISO-8859-1">
     <title>Your Registered Courses</title>
     <style>
-        /* Your CSS styles here */
         .course-card {
             border: 1px solid #ccc;
             padding: 10px;
