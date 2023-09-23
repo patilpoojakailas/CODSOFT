@@ -63,27 +63,20 @@
         ResultSet resultSet = null;
 
         try {
-            // Establish a database connection
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/course", "root", "7890");
 
-            // Define the SQL query to get course information with student counts
          String sqlQuery = "SELECT c.course_code, c.title, COUNT(s.stud_id) AS student_count " +
                   "FROM course c " +
                   "LEFT JOIN student s ON c.course_code = s.course_code " +
                   "GROUP BY c.course_code, c.title " +
                   "HAVING student_count < 50";
 
-
-            // Create a prepared statement and execute the query
             preparedStatement = connection.prepareStatement(sqlQuery);
             resultSet = preparedStatement.executeQuery();
 
-            
-            // Create a set to store course codes from the database
             Set<String> courseCodesFromDB = new HashSet<String>();
 
-            // Fetch and store course codes from the database
             while (resultSet.next()) {
             	System.out.println(resultSet);
                 System.out.print(resultSet.getObject(1)+" ");
@@ -95,7 +88,6 @@
                 courseCodesFromDB.add(courseCode);
             }
 
-            // Define the list of predefined courses
             String[][] courses = {
             {"Web Development", "Learn web development", "images/Web2.jpg", "WD101"},
             {"Mobile App Development", "Develop mobile apps", "images/MOBILE-APP.jpg", "MAD102"},
@@ -111,7 +103,6 @@
             {"Internet of Things (IoT) Development", "Internet of Things (IoT) Development", "images/iot.jpg", "IoT112"}
         };
 
-            // Iterate through the predefined courses and display those that match
             for (String[] course : courses) {
             String courseName = course[0];
             String description = course[1];
