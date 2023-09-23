@@ -32,7 +32,6 @@ public class SearchCoursesServlet extends HttpServlet {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/course", "root", "7890");
 
-            // Perform a search for the user based on email and name
             String searchQuery = "SELECT * FROM student WHERE email = ? AND stud_name = ?";
             PreparedStatement searchStatement = connection.prepareStatement(searchQuery);
             searchStatement.setString(1, userEmail);
@@ -40,7 +39,7 @@ public class SearchCoursesServlet extends HttpServlet {
             ResultSet searchResult = searchStatement.executeQuery();
 
             if (searchResult.next()) {
-                // User found, retrieve their registered courses
+               
                 String studentId = searchResult.getString("stud_id");
                 String getRegisteredCoursesQuery = "SELECT course_title FROM student WHERE email = ?"; // Only select course_title
                 PreparedStatement registeredCoursesStatement = connection.prepareStatement(getRegisteredCoursesQuery);
@@ -48,7 +47,6 @@ public class SearchCoursesServlet extends HttpServlet {
                 ResultSet registeredCoursesResult = registeredCoursesStatement.executeQuery();
 
                 while (registeredCoursesResult.next()) {
-                    // Retrieve course title and add it to the list
                     String courseTitle = registeredCoursesResult.getString("course_title");
                     String[] courseDetails = { courseTitle };
                     registeredCourses.add(courseDetails);
@@ -56,13 +54,10 @@ public class SearchCoursesServlet extends HttpServlet {
                 request.setAttribute("registeredCourses", registeredCourses);
                 request.getRequestDispatcher("searchCourses.jsp").forward(request, response);
             } else {
-                // User not found, handle this case (e.g., display an error message)
-                // You can redirect to an error page or show a message on the current page.
                 response.sendRedirect("errorPage.jsp"); // Example: Redirect to an error page
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-            // Handle the exception here (e.g., log the error or display an error message)
         }
     }
 }
