@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<!-- HTML form to input email and name -->
+
     <form action="SearchCoursesServlet" method="POST"> <!-- Note the action attribute -->
         <input type="text" name="email" placeholder="Email" required>
         <input type="text" name="name" placeholder="Name" required>
