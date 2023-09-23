@@ -40,12 +40,6 @@
             overflow: hidden;
         }
 
-        /* .image-container img {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        } */
     </style>
 </head>
 <body>
@@ -57,7 +51,6 @@
 </div>
 <div class="course-grid">
     <%
-        // Define the list of courses with images and descriptions
         String[][] courses = {
             {"Web Development", "Learn web development", "images/Web2.jpg", "WD101"},
             {"Mobile App Development", "Develop mobile apps", "images/MOBILE-APP.jpg", "MAD102"},
