@@ -16,7 +16,6 @@
     int courseCapacity = 0;
     String courseSchedule = "";
 
-    // Additional variables to store student count and capacity
     int studentCount = 0;
     boolean registrationFull = false;
 
@@ -36,7 +35,6 @@
             courseSchedule = resultSet.getString("schedule");
         }
 
-        // Query to get the count of registered students for the course
         sql = "SELECT COUNT(*) AS student_count FROM student WHERE course_code = ?";
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, courseCode);
@@ -44,7 +42,6 @@
 
         if (resultSet.next()) {
             studentCount = resultSet.getInt("student_count");
-            // Check if registration is full
             registrationFull = studentCount >= courseCapacity;
         }
 
@@ -53,7 +50,7 @@
         connection.close();
     } catch (ClassNotFoundException | SQLException e) {
         e.printStackTrace();
-        // Handle the exception here (e.g., log the error or display an error message)
+
     }
 %>
 
@@ -64,7 +61,7 @@
 <title>Course Details</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
-    /* Custom styles */
+  
     .page-container {
         background-color: #f8f9fa;
         padding: 30px 0;
