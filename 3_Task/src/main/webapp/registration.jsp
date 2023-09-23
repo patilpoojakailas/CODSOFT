@@ -9,12 +9,11 @@
 <body>
 <h1>Student Registration</h1>
     <form action="RegistrationServlet" method="post">
-        <!-- Course Information (You can add more fields as needed) -->
         <input type="hidden" name="course_code" value="<%= request.getParameter("course_code") %>">
 <% System.out.println("courseId: " + request.getParameter("course_code")); %>
         <input type="hidden" name="courseTitle" value="<%= request.getParameter("courseTitle") %>">
         <% System.out.println("coursetilte: " + request.getParameter("courseTitle")); %>
-        <!-- Student Information -->
+        
         <label for="studName">Name:</label>
         <input type="text" id="studName" name="studName" required><br>
 
@@ -44,7 +43,7 @@
         <label for="department">Department:</label>
         <input type="text" id="department" name="department" required><br>
 
-        <!-- Submit Button -->
+       
         <input type="submit" value="submit">
     </form>
 </body>
